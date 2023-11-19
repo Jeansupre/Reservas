@@ -24,9 +24,12 @@ public class Vuelo {
     private Date fecha;
     private Time hora;
     private Long cantidad_asientos;
+    @Column(name = "aerolinea_id")
+    private Long idAerolinea;
 
+    /*
     @ManyToOne
     @JoinColumn(name = "aerolinea_id", referencedColumnName = "id")
     private Aerolinea aerolinea;
-
+    */
 }

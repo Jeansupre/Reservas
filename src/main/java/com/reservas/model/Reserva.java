@@ -19,6 +19,14 @@ public class Reserva {
     private String estado_reserva;
     private Float precio_pagado;
 
+    @Column(name = "usuario_id")
+    private Long idUsuario;
+    @Column(name = "vuelo_id")
+    private Long idVuelo;
+    @Column(name = "asiento_id")
+    private Long idAsiento;
+
+    /*
     @ManyToOne
     @JoinColumn(name = "vuelo_id", referencedColumnName = "id")
     private Vuelo vuelo;
@@ -30,4 +38,5 @@ public class Reserva {
     @OneToOne
     @JoinColumn(name = "usuario_id", referencedColumnName = "id")
     private Usuario usuario;
+     */
 }

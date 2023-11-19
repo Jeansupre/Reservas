@@ -21,7 +21,11 @@ public class Asiento {
     private boolean disponibilidad;
     private Float precio;
 
+    @Column(name = "vuelo_id")
+    private Long idVuelo;
+    /*
     @ManyToOne
     @JoinColumn(name = "vuelo_id",referencedColumnName = "id")
     private Vuelo vuelo;
+    */
 }

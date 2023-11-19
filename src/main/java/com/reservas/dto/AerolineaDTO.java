@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AerolineaDTO {
-    private Long idDTO;
-    private String nombreDTO;
+    private Long id;
+    private String nombre;
 }

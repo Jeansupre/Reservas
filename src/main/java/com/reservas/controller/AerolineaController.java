@@ -21,13 +21,14 @@ public class AerolineaController {
     private final IAerolineaService iAerolineaService;
 
     @GetMapping("/find")
-    public ResponseEntity<List<AerolineaDTO>> findAll(){
-        List<Aerolinea> ListaAerolinea = this.iAerolineaService.findAll();
+    public ResponseEntity<List<Aerolinea>> findAll(){
+        List<Aerolinea> listaAerolinea = this.iAerolineaService.findAll();
 
-        return new ResponseEntity<>(ListaAerolinea.stream()
-                .map(AerolineaMapper.INSTANCE::toAerolineaDTO)
-                .collect(Collectors.toList()), HttpStatus.OK);
-    }
+        if (listaAerolinea.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }else {
+            return new ResponseEntity<>(listaAerolinea, HttpStatus.OK);
+        }    }
 
     @Autowired
     public AerolineaController(IAerolineaService iAerolineaService) {
