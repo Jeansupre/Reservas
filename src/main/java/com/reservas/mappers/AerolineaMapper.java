@@ -8,5 +8,16 @@ import org.mapstruct.factory.Mappers;
 
 @Mapper
 public interface AerolineaMapper {
+/*
+    AerolineaMapper INSTANCE = Mappers.getMapper(AerolineaMapper.class);
 
+    @Mapping(target = "id" , source = "id")
+    @Mapping(target = "nombre" , source = "nombre")
+    AerolineaDTO toAerolineaDTO(Aerolinea aerolinea);
+
+    @Mapping(target = "id" , source = "id")
+    @Mapping(target = "nombre" , source = "nombre")
+    Aerolinea toAerolinea(AerolineaDTO aerolineaDTO);
+
+ */
 }

@@ -1,7 +1,5 @@
 package com.reservas.controller;
 
-import com.reservas.dto.AerolineaDTO;
-import com.reservas.mappers.AerolineaMapper;
 import com.reservas.model.Aerolinea;
 import com.reservas.service.interfaces.IAerolineaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/aerolinea")
@@ -28,7 +25,8 @@ public class AerolineaController {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }else {
             return new ResponseEntity<>(listaAerolinea, HttpStatus.OK);
-        }    }
+        }
+    }
 
     @Autowired
     public AerolineaController(IAerolineaService iAerolineaService) {
