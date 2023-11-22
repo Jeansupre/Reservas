@@ -19,6 +19,21 @@ public class AsientoServiceImpl implements IAsientoService{
     }
 
     @Override
+    public Asiento findById(Long id) {
+        return this.iAsientoRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public List<Asiento> findAsientoByNombre(String nombre) {
+        return this.iAsientoRepository.findAsientoByAsiento(nombre);
+    }
+
+    @Override
+    public List<Asiento> findAsientoByNombreAndIdAvion(String nombre, Long idAvion) {
+        return this.iAsientoRepository.findAsientoByAsientoAndIdAvion(nombre, idAvion);
+    }
+
+    @Override
     public Long findCantidadAsientosDisponiblesByAvion(Long idAvion) {
         return this.iAsientoRepository.findCantidadAsientosDisponiblesByAvion(idAvion);
     }
@@ -49,6 +64,16 @@ public class AsientoServiceImpl implements IAsientoService{
             }
             this.iAsientoRepository.save(asiento);
         }
+    }
+
+    @Override
+    public Asiento asignarAsiento(Long id) {
+
+        Asiento asientoAsignar = this.iAsientoRepository.findById(id).orElse(null);
+
+        asientoAsignar.setDisponibilidad(false);
+
+        return this.iAsientoRepository.save(asientoAsignar);
     }
 
     @Autowired
