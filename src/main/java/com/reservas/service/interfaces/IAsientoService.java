@@ -7,4 +7,9 @@ import java.util.List;
 public interface IAsientoService {
 
     List<Asiento> findAll();
+
+    Long findCantidadAsientosDisponiblesByAvion(Long idAvion);
+
+    Long findCantidadAsientosOcupadosByAvion(Long idAvion);
+    void crearAsientos(Long cantidad, Long idAvion);
 }

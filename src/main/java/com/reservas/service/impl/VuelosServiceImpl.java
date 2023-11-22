@@ -17,6 +17,33 @@ public class VuelosServiceImpl implements IVuelosService {
     public List<Vuelo> findAll() {
         return this.iVueloRepository.findAll();
     }
+
+    @Override
+    public Vuelo findVueloById(Long id) {
+        return this.iVueloRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public List<Vuelo> findVuelosByAerolinea(Long id) {
+        return this.iVueloRepository.findVuelosByIdAerolinea(id);
+    }
+
+    @Override
+    public Vuelo crearVuelo(Vuelo vuelo) {
+        return this.iVueloRepository.save(vuelo);
+    }
+
+    @Override
+    public Vuelo eliminarVuelo(Long id) {
+
+        Vuelo eliminarVuelo = this.iVueloRepository.findById(id).orElse(null);
+
+        if (eliminarVuelo != null) {
+            this.iVueloRepository.delete(eliminarVuelo);
+        }
+        return eliminarVuelo;
+    }
+
     public VuelosServiceImpl(IVueloRepository iVueloRepository) {
         this.iVueloRepository = iVueloRepository;
     }
