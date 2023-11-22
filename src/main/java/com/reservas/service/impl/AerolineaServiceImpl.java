@@ -18,6 +18,11 @@ public class AerolineaServiceImpl implements IAerolineaService {
         return this.iAerolineaRepository.findAll();
     }
 
+    @Override
+    public Aerolinea findAerolineaById(Long id) {
+        return this.iAerolineaRepository.findById(id).orElse(null);
+    }
+
     @Autowired
     public AerolineaServiceImpl(IAerolineaRepository iAerolineaRepository) {
         this.iAerolineaRepository = iAerolineaRepository;
