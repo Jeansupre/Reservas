@@ -17,6 +17,16 @@ public class ReservaServiceImpl implements IReservaService {
         return this.iReservaRepository.findAll();
     }
 
+    @Override
+    public Reserva findById(Long id) {
+        return this.iReservaRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public Reserva asignarReserva(Reserva reserva) {
+        return this.iReservaRepository.save(reserva);
+    }
+
     @Autowired
     public ReservaServiceImpl(IReservaRepository iReservaRepository) {
         this.iReservaRepository = iReservaRepository;
